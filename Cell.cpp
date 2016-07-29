@@ -26,3 +26,7 @@ void Cell::setState(CellState state)
     m_state = state;
 }
 
+CellState Cell::getState()
+{
+    return m_state;
+}
