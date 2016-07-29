@@ -12,4 +12,7 @@ TEST(MatrixTestSuite, MatrixInitializedWithDeadCells)
     ASSERT_EQ(CELLSTATE_DEAD, l_cell2->getState());
     ASSERT_EQ(CELLSTATE_DEAD, l_cell3->getState());
     ASSERT_EQ(CELLSTATE_DEAD, l_cell4->getState());
+
+    l_cell4->setState(CELLSTATE_LIVE);
+    ASSERT_EQ(CELLSTATE_LIVE, l_cell4->getState());
 }
