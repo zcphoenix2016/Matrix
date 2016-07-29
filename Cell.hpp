@@ -2,8 +2,8 @@
 
 enum CellState
 {
-    CELLSTATE_LIVE,
-    CELLSTATE_DEAD
+    CELLSTATE_DEAD,
+    CELLSTATE_LIVE
 };
 
 class Cell

@@ -4,15 +4,23 @@
 TEST(MatrixTestSuite, MatrixInitializedWithDeadCells)
 {
     Matrix matrix(3, 3);
-    auto l_cell1 = matrix.getCell(2, 2);
-    auto l_cell2 = matrix.getCell(0, 0);
-    auto l_cell3 = matrix.getCell(1, 2);
-    auto l_cell4 = matrix.getCell(1, 1);
-    ASSERT_EQ(CELLSTATE_DEAD, l_cell1->getState());
-    ASSERT_EQ(CELLSTATE_DEAD, l_cell2->getState());
-    ASSERT_EQ(CELLSTATE_DEAD, l_cell3->getState());
-    ASSERT_EQ(CELLSTATE_DEAD, l_cell4->getState());
 
-    l_cell4->setState(CELLSTATE_LIVE);
-    ASSERT_EQ(CELLSTATE_LIVE, l_cell4->getState());
+    ASSERT_EQ(CELLSTATE_DEAD, matrix.getCellState(2, 2));
+    ASSERT_EQ(CELLSTATE_DEAD, matrix.getCellState(0, 0));
+    ASSERT_EQ(CELLSTATE_DEAD, matrix.getCellState(1, 2));
+    ASSERT_EQ(CELLSTATE_DEAD, matrix.getCellState(1, 1));
+
+    matrix.setCellState(1, 1, CELLSTATE_LIVE);
+    ASSERT_EQ(CELLSTATE_LIVE, matrix.getCellState(1, 1));
 }
+
+TEST(MatrixTestSuite, CellsAtMatrixEdgeCouldBeSetLive)
+{
+    Matrix matrix(10, 20);
+
+    matrix.setCellState(0, 8, CELLSTATE_LIVE);
+    matrix.setCellState(8, 0, CELLSTATE_LIVE);
+
+    ASSERT_EQ(CELLSTATE_DEAD, matrix.getCellState(0, 8));
+    ASSERT_EQ(CELLSTATE_DEAD, matrix.getCellState(8, 0));
+}	
