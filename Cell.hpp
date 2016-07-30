@@ -1,5 +1,7 @@
 #pragma once
 
+#include "basetypes.hpp"
+
 enum CellState
 {
     CELLSTATE_DEAD,
@@ -15,7 +17,7 @@ public:
     }
     void setState(CellState);
     CellState getState();
-    CellState nextState(unsigned int);
+    CellState nextState(u32);
 private:
     CellState m_state = CELLSTATE_DEAD;
 };

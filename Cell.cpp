@@ -1,6 +1,6 @@
 #include "Cell.hpp"
 
-CellState Cell::nextState(unsigned int numOfLiveNeighbours)
+CellState Cell::nextState(u32 numOfLiveNeighbours)
 {
     if(CELLSTATE_DEAD == m_state)
     {
