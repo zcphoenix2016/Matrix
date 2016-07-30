@@ -1,7 +1,7 @@
 #include "Matrix.hpp"
 
 Matrix::Matrix(u32 rows, u32 cols)
-    : m_rows(rows), m_cols(cols)
+       : m_rows(rows), m_cols(cols)
 {
     for(int i = 0; i < rows * cols; i ++)
     {
