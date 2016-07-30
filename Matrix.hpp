@@ -12,6 +12,8 @@ public:
     CellState getCellState(u32 row, u32 col);
     void setCellState(u32 row, u32 col, CellState state);
     void nextGeneration();
+    void display();
+    u32 getNumOfLiveCells();
 private:
     std::shared_ptr<Cell> getCell(u32 row, u32 col);
     u32 getNumOfLiveNeighbours(u32 row, u32 col);

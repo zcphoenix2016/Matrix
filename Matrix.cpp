@@ -1,4 +1,5 @@
 #include "Matrix.hpp"
+#include <iostream>
 
 Matrix::Matrix(u32 rows, u32 cols)
        : m_rows(rows), m_cols(cols)
@@ -58,6 +59,33 @@ void Matrix::nextGeneration()
 	{
            getCell(row, col)->nextState(getNumOfLiveNeighbours(row, col)); 
 	}
+    }
+}
+
+void Matrix::display()
+{
+    u32 row = 0, col = 0;
+    for(;row < m_rows; row ++ )
+    {
+        for(col = 0; col < m_cols; col ++)
+	{
+            std::cout << getCellState(row, col) << " ";
+	}
+        std::cout << std::endl;
+    }
+}
+
+u32 Matrix::getNumOfLiveCells()
+{
+    u32 numOfLiveCells = 0;
+    std::vector<std::shared_ptr<Cell>>::iterator iter = m_vec.begin();
+    while(iter not_eq m_vec.end())
+    {
+        if(CELLSTATE_LIVE == (*iter)->getState())
+	{
+            numOfLiveCells ++;
+	}
+	iter ++;
     }
 }
 
